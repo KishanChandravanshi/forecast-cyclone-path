@@ -31,3 +31,25 @@ The RNN model was not trained over all the csv, rather we only trained our model
  ![x-coordinate prediction](https://github.com/KishanChandravanshi/forecast-cyclone-path/blob/master/tmp/x_coordinate.png)
 ### y - coordinate
  ![x-coordinate prediction](https://github.com/KishanChandravanshi/forecast-cyclone-path/blob/master/tmp/y_coordinate.png)
+
+## To get started follow the steps
+* let's clone yolo repository, to do so type the following commands in your terminal or cmd
+```
+git clone https://github.com/thtrieu/darkflow.git
+cd darkflow
+```
+* Now before moving forward we need to setup a few thing so that the YOLO works properly
+`python3 setup.py build_ext --inplace`
+<br> <b> note if you get an error, 'python3 is not recognized', type python instead of python3
+* You've completed the first phase, now its time to annotate the images, if you already have annotated images, then move to step,
+* To annotate your image, first move to the data_generator folder, there you will find draw_boxes.py python file, before running it make sure you put all your images in dataset folder, then running draw_boxes.py. You'll be presented with an image, draw the bounding box and when you are done, hit q, to annotate the next image.
+* after annotating your image its time to train the model, but before doing so we need to make some adjustment to certain files in order to make them fit for this training.
+* download these files from this link https://drive.google.com/open?id=1NFnCjMnILvQsXYDj2s7rpjckGjZu77ML
+* paste the yolo-v2.cfg in the cfg directory and yolo.weights in bin directory.
+* Now open your CMD or terminal and paste the following code
+`python flow --model cfg/yolo-v2.cfg --load bin/yolo.weights --train --annotation data_generator/annotations --dataset data_generator/dataset --gpu 0.8 --epoch 50`
+<br> <b> Note: if you don't have NVIDIA gpu then don't write --gpu 0.8 </b>
+
+* You've completed the second phase, now let's move to the next phase, i.e creation of CSV files and training your RNN
+* run the generate_csv.py file, it will basically give you a csvfile.txt as an output, use external software such as MATLAB to convert it into a csvfile and name it 'final.csv'
+* run the <b>rnn.py</b> to train your RNN model, it will give you a graph of the predicted result, i.e x-coordinates and y-coordinates.
