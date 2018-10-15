@@ -24,4 +24,10 @@ The RNN model was not trained over all the csv, rather we only trained our model
 
 ## Block diagram representation of the model
  ![Block Diagram](https://github.com/KishanChandravanshi/forecast-cyclone-path/blob/master/tmp/block.png)
- 
+
+## Prediction
+
+### x - coordinate
+ ![x-coordinate prediction](https://github.com/KishanChandravanshi/forecast-cyclone-path/blob/master/tmp/x_coordinate.png)
+### y - coordinate
+ ![x-coordinate prediction](https://github.com/KishanChandravanshi/forecast-cyclone-path/blob/master/tmp/y_coordinate.png)
