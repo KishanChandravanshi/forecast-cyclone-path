@@ -42,7 +42,7 @@ cd darkflow
 `python3 setup.py build_ext --inplace`
 <br> Note: if you get an error, <b>'python3 is not recognized'</b>, type python instead of python3 <br>
 * Now clone this repo, but in a different location, after doing that copy all the files present in this repo to the previous repository i.e inside darkflow repo.
-* You've completed the first phase, now its time to annotate the images, if you already have annotated images, then move to step 4,
+* You've completed the first phase, now its time to annotate the images, if you already have annotated images, then move to step 5,
 * To annotate your image, first move to the data_generator folder, there you will find draw_boxes.py python file, before running it make sure you put all your images in dataset folder, then running draw_boxes.py. You'll be presented with an image, draw the bounding box and when you are done, hit q, to annotate the next image.
 * After annotating your image its time to train the model, but before doing so we need to make some adjustment to certain files in order to make them fit for this training.
 * Download these files from this link <i>https://drive.google.com/open?id=1NFnCjMnILvQsXYDj2s7rpjckGjZu77ML</i>
