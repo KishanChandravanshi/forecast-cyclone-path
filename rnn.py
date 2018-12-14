@@ -190,30 +190,31 @@ plt.legend()
 plt.show()
 
 # # Final Ouput with bounding box across the image for single image
-#
-# # load the model
-# regressorx = load_model('x_weight_5_1000.h5')
-# regressory = load_model('y_weight_5_1000.h5')
-# filename = 'final.csv'
-#
-# import cv2
-# dataset = pd.read_csv(filename)
-# img = cv2.imread('last_sequence.jpg')
-#
-# x_input = np.array(dataset.iloc[145 - timestep: 145, 1:2])
-# x_input = x_input.reshape(1, timestep)
-# x_input = sc1.transform(x_input)
-# x_input = np.reshape(x_input, (x_input.shape[0], x_input.shape[1], 1))
-#
-# y_input = np.array(dataset.iloc[145 - timestep: 145, 2:3])
-# y_input = y_input.reshape(1, timestep)
-# y_input = sc2.transform(y_input)
-# y_input = np.reshape(y_input, (y_input.shape[0], y_input.shape[1], 1))
-#
-# x_predicted = sc1.inverse_transform(regressorx.predict(x_input))
-# y_predicted = sc2.inverse_transform(regressory.predict(y_input))
-#
-# img_new = cv2.circle(img, center=(x_predicted, y_predicted), radius=100, color=(0, 0, 255), thickness=3)
-# cv2.imshow('image', img_new)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
+
+# load the model
+regressorx = load_model('x_weight_5_1000.h5')
+regressory = load_model('y_weight_5_1000.h5')
+filename = 'final.csv'
+
+import cv2
+dataset = pd.read_csv(filename)
+img = cv2.imread('last_sequence.jpg')
+
+x_input = np.array(dataset.iloc[145 - timestep: 145, 1:2])
+x_input = x_input.reshape(1, timestep)
+x_input = sc1.transform(x_input)
+x_input = np.reshape(x_input, (x_input.shape[0], x_input.shape[1], 1))
+
+y_input = np.array(dataset.iloc[145 - timestep: 145, 2:3])
+y_input = y_input.reshape(1, timestep)
+y_input = sc2.transform(y_input)
+y_input = np.reshape(y_input, (y_input.shape[0], y_input.shape[1], 1))
+
+x_predicted = sc1.inverse_transform(regressorx.predict(x_input))
+y_predicted = sc2.inverse_transform(regressory.predict(y_input))
+
+# change the radius to any desired value
+img_new = cv2.circle(img, center=(x_predicted, y_predicted), radius=20, color=(0, 0, 255), thickness=3)
+cv2.imshow('image', img_new)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
